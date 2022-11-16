@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script 
+ src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js">
+</script>
+<script type="text/javascript">
+	$(function() {
+		$('#b1').click(function() {
+			where = $('#where').val()
+			location.href="https://kin.naver.com/search/list.naver?query=" + where
+		})
+		$('#b2').click(function() {
+			buy = $('#buy').val()
+			location.href="https://shoppinghow.kakao.com/search/" + buy
+		})
+	})
+</script>
+</head>
+<body>
+당신은 어디로 가고 싶나요? (산, 바다, 강 중 선택) <input id="where">
+<button id="b1">네이버 지식인 검색하기</button> <br>
+당신이 사고 싶은 것은? <input id="buy">
+<button id="b2">다음 쇼핑으로 검색하기</button>
+</body>
+</html>

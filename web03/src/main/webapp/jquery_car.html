@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> <!-- jquery라이브러리 -->
+<script type="text/javascript">
+
+	$(function() {
+		$('#textadd').click(function() {
+			t1 = $('#t1').val()
+			$('#result').append(t1 +'<br>')
+		})
+		$('#caradd').click(function() {
+			$('#result').append('<img src=img/car.png width=200 height=200>' + '<br>')
+		})
+		$('#add').click(function() {
+			$('#result').append('<img src=img/car.png width=200 height=200><br>')
+			t1 = $('#t1').val()
+			$('#result').append(t1) +'<br>'
+		})
+	})
+</script>
+</head>
+<body>
+댓글 입력 : <input type="text" id='t1'>
+<button id='textadd'>글자 추가</button>
+<button id='caradd'>자동차 추가</button>
+<button id='add'>글자 + 자동차 추가</button>
+<div id='result'></div>
+</body>
+</html>

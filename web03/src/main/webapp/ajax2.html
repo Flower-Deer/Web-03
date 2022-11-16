@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"> </script>
+<script>
+	$(function() { //익명함수
+		$('#b1').click(function() {
+			$.ajax({
+				url : "data/rank.xml",
+				success : function(doc) {
+					alert('성공, 받은 데이터는 ' + doc)
+					$('#d1').html('성공, 받은 데이터는 ' + doc)
+					list = $(doc).find('rank') //find결과가 여러개=> 배열
+					alert(list.length +"개")
+					for (i = 0; i < list.length; i++) {
+						name = $(list[i]).find('name').text() //김연아
+						tel = $(list[i]).find('tel').text()
+						$('#d1').append( "<br>" + name + ", " + tel)
+					}
+				},
+				error : function(a) {
+					alert('실패, 실패의 내용 ' + a)
+				} //error
+			}) //ajax
+		}) //b1
+		
+		$('#b2').click(function() {
+			$.ajax({
+				url : "data/rank3.xml",
+				success : function(x) {
+					alert('성공, 받은 데이터는 ' + x)
+					$('#d2').html('성공, 받은 데이터는 ' + x)
+					list = $(x).find('winner') //find결과가 여러개=> 배열
+					alert(list.length +"개")
+					for (i = 0; i < list.length; i++) {
+						year = $(list[i]).find('year').text()
+						cls = $(list[i]).find('class').text()
+						name = $(list[i]).find('name').text()
+						field = $(list[i]).find('field').text()
+						$('#d2').append("<br>" + year + ", " + cls + ", " + name + ", " + field)
+					}
+				},
+				error : function(c) {
+					alert('실패, 실패의 내용 ' + c)
+				} //error
+			}) //ajax
+		}) //b2
+		
+		$('#b3').click(function() {
+			$.ajax({
+				url : "data/dataset.xml",
+				success : function(q) {
+					alert('성공, 받은데이터는 ' + q)
+					$('#d3').html('성공, 받은 데이터는 ' + q)
+					list = $(q).find('record')
+					alert(list.length +"개")
+					for (var i = 0; i < list.length; i++) {
+						id = $(list[i]).find('id').text()
+						first_name = $(list[i]).find('first_name').text()
+						email = $(list[i]).find('email').text()
+						gender = $(list[i]).find('gender').text()
+						ip_address = $(list[i]).find('ip_address').text()
+						address = $(list[i]).find('address').text()
+						$('#d3').append("<br>" + id + ", " + first_name + ", " + email + ", " + gender + ", " + ip_address + ", " + address)
+					}
+				},
+				error : function(d) {
+					alert('실패, 실패의 내용 ' + d)
+				}//error
+			})//ajax
+		})//b3"
+		
+		$('#b4').click(function() {
+			$.ajax({
+				url : "data/rank.json",
+				success : function(doc) {
+					alert('성공, 받은 데이터는 ' + doc)
+					$('#d4').html('성공, 받은 데이터는 ' + doc)
+					//받은 데이터에서 rank키의 값을 리스트(배열)로 추출
+					list = doc.rank //xml => list = $(doc).find('rank')
+					alert(list.length +"개")
+					for (i = 0; i < list.length; i++) {
+						n = list[i].name //xml => name = $(list[i]).find('name').text()
+						t = list[i].tel
+						$('#d4').append('<br>' + n + ", " + t)
+					}
+				},
+				error : function(a) {
+					alert('실패, 실패의 내용 ' + a)
+				} //error
+			}) //ajax
+		}) //b4
+		
+		$('#b5').click(function() {
+			$.ajax({
+				url : "data/MOCK_DATA.json",
+				success : function(doc) {
+					list = doc //key없으면 전체 배열을 돌림
+					alert(list.length +"개")
+					for (var i = 0; i < list.length; i++) {
+						id = list[i].id
+						name = list[i].name
+						email = list[i].email
+						address = list[i].address
+						$('#d5').append('<br>' + id + ", " + name + ", " + email + ", " + address)
+					}
+				},
+				error : function (a) {
+					alert('실패, 실패의 내용 ' + a)
+				}
+			})
+		})
+		
+	}) //$
+</script>
+</head>
+<body>
+	<button id="b1">XML받아오기</button>
+	<button id="b2">XML받아오기2</button>
+	<button id="b3">mockaroo sample</button>
+	<button id="b4">JSON받아오기</button>
+	<button id="b5">JSON받아오기2</button>
+	<hr>
+	<div id=d1 style="background: yellow;"></div>
+	<br>
+	<div id=d2 style="background: pink;"></div>
+	<br>
+	<div id=d3 style="background: red;"></div>
+	<br>
+	<div id=d4 style="background: green;"></div>
+	<br>
+	<div id=d5 style="background: lime;"></div>
+</body>
+</html>

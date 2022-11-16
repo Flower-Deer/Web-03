@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> <!-- jquery라이브러리 -->
+<script type="text/javascript">
+	$(function() {
+		$('#b1').click(function() {
+			food = $('#food').val()
+			where = $('#where').val()
+			alert('당신이 먹고 싶은 음식은 ' + food + '이고, 가고 싶은 곳은 ' + where + '군요.')
+		})
+		$('#b2').click(function() {
+			site = $('#site').val()
+			if(site == 'movie') {
+				location.href = "https://www.cgv.co.kr/"
+			}else {
+				location.href = "https://www.google.com/search?sxsrf=ALiCzsa1zJ-Xjf7sKB7TvGXTCXCyXKqELg:1668145108841&q=%EC%97%AC%ED%96%89+%EC%98%88%EC%95%BD+%EC%82%AC%EC%9D%B4%ED%8A%B8&sa=X&ved=2ahUKEwj_rZXltKX7AhVXUWwGHdB7APAQ7xYoAHoECAYQAQ&biw=1536&bih=696&dpr=1.25"
+			}
+				
+		})
+	})
+</script>
+</head>
+<body>
+먹고 싶은 음식 : <input type="text" id = "food">
+가고 싶은 곳 : <input type="text" id = "where">
+<button id='b1'>출력!!</button> <br>
+현재 제일 내가 많이 들어가는 사이트 : <input type="text" id="site">
+<button id='b2'>출력!!</button>
+</body>
+</html>

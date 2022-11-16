@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('#b1').click(function() {
+			$.ajax({
+				url : "ok.html",
+				success : function(x) { //x아니라도 아무거나 가능
+					//ok.html 요청시 성공!하면 '처리'할 부분
+					//x에 ok.html의 내용이 들어감
+					alert('성공!!, 받은데이터는' + x)
+					$('#d1').html('성공! 받은데이터는 '+x)
+				},
+				error : function(e) { //실패없으면 안써도 됨.
+					//ok.html 요청시 실패..하면 '처리'할 부분
+					alert('실패.. 실패의 내용' + e)
+				}//error
+			})//ajax		
+		})//b1
+		
+		$('#b2').click(function() {
+			$.ajax({
+				url : "weather.html",
+				success : function(x) { //x아니라도 아무거나 가능
+					//ok.html 요청시 성공!하면 '처리'할 부분
+					//x에 ok.html의 내용이 들어감
+					alert('성공!!, 받은데이터는' + x)
+					$('#d2').html('성공! 받은데이터는 '+x)
+				},
+				error : function(e) { //실패없으면 안써도 됨.
+					//ok.html 요청시 실패..하면 '처리'할 부분
+					alert('실패.. 실패의 내용' + e)
+				}//error
+			})//ajax		
+		})//b2
+		
+		$('#b3').click(function() {
+			$.ajax({
+				url : "tour.html",
+				success : function(x) { //x아니라도 아무거나 가능
+					//ok.html 요청시 성공!하면 '처리'할 부분
+					//x에 ok.html의 내용이 들어감
+					alert('성공!!, 받은데이터는' + x)
+					$('#d3').html('성공! 받은데이터는 '+x)
+				},
+				error : function(e) { //실패없으면 안써도 됨.
+					//ok.html 요청시 실패..하면 '처리'할 부분
+					alert('실패.. 실패의 내용' + e)
+				}//error
+			})//ajax		
+		})//b3
+	})//$
+</script>
+</head>
+<body>
+	<!-- a태그는 '동기'통신 : 호출하면 페이지가 순서대로 넘어감 -->
+	<!-- <a href="ok.html">공공데이터 포탈 요청</a>
+	<a href="weather.html">기상청 정보 요청</a>
+	<a href="tour.html">주변 맛입 정보 요청</a> -->
+
+	<button id="b1">공공데이터 포탈 요청</button>	
+	<button id="b2">기상청 정보 요청</button>	
+	<button id="b3">주변 맛입 정보 요청</button>
+	<hr>
+	<!-- ajax id 입력시 -> "" 따옴표 빠져도 됨! -->
+	<div id=d1 style="background: yellow;"></div> <br>	
+	<div id=d2 style="background: pink;"></div> <br>	
+	<div id=d3 style="background: gray;"></div> <br>	
+</body>
+</html>

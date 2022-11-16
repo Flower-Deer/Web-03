@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js">
+</script>
+<script type="text/javascript" src="js/cors.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('#b1').click(function() {
+			
+			//div 다비우기!!!!!
+			$('div').empty()
+			
+			$.ajax({
+				crossOrigin: true,
+				url : 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Frss.hankyung.com%2Ffeed%2Fhei.xml&api_key=ces8low0oekypf7ashezfsrw6wgtqqsgrltx436u',
+				data : {
+					url : "https://rss.hankyung.com/feed/hei.xml",
+					api_key : "ces8low0oekypf7ashezfsrw6wgtqqsgrltx436u",
+					count : 20					
+				},
+				success : function(x) { 
+					alert('응답받은 내용: ' + x)
+					//items키를 주고, 값인 []리스트를 가지고 오자.
+					list = x.items
+					alert(list.length)
+					for (var i = 0; i < list.length; i++) {
+						t = list[i].title
+						p = list[i].pubDate
+						l = "<a href=" + list[i].link +">"+list[i].link +"</a>"
+						g = list[i].guid
+						a = list[i].author
+					
+					$('div').append("title : " + t + "<br>"
+							+ "pubDate : " + p + "<br>"
+							+ "link : "+ l + "<br>"
+							+ "guid : "+ g + "<br> author : " + a + "<hr color=" + "black" + ">")
+					}	
+				} //success
+			}) //ajax
+		}) //b1
+		
+		$('#b2').click(function() {
+			
+			//div 다비우기!!!!!
+			$('div').empty()
+			
+			$.ajax({
+				crossOrigin: true,
+				url : 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Frss.hankyung.com%2Ffeed%2Fit.xml&api_key=ces8low0oekypf7ashezfsrw6wgtqqsgrltx436u',
+				data : {
+					url : "https://rss.hankyung.com/feed/it.xml",
+					api_key : "ces8low0oekypf7ashezfsrw6wgtqqsgrltx436u",
+					count : 20					
+				},
+				success : function(x) { 
+					alert('응답받은 내용: ' + x)
+					//items키를 주고, 값인 []리스트를 가지고 오자.
+					list = x.items
+					alert(list.length)
+					for (var i = 0; i < list.length; i++) {
+						t = list[i].title
+						p = list[i].pubDate
+						l = "<a href=" + list[i].link +">"+list[i].link +"</a>"
+						g = list[i].guid
+						a = list[i].author
+					
+					$('div').append("title : " + t + "<br>"
+							+ "pubDate : " + p + "<br>"
+							+ "link : "+ l + "<br>"
+							+ "guid : "+ g + "<br> author : " + a + "<hr color=" + "black" + ">")
+					}
+				} //success
+			}) //ajax
+		}) //b2
+		
+		$('#b3').click(function() {
+			
+			//div 다비우기!!!!!
+			$('div').empty()
+			
+			$.ajax({
+				crossOrigin: true,
+				url : 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Frss.hankyung.com%2Ffeed%2Finternational.xml&api_key=ces8low0oekypf7ashezfsrw6wgtqqsgrltx436u',
+				data : {
+					url : "https://rss.hankyung.com/feed/international.xml",
+					api_key : "ces8low0oekypf7ashezfsrw6wgtqqsgrltx436u",
+					count : 20					
+				},
+				success : function(x) { 
+					alert('응답받은 내용: ' + x)
+					//items키를 주고, 값인 []리스트를 가지고 오자.
+					list = x.items
+					alert(list.length)
+					for (var i = 0; i < list.length; i++) {
+						t = list[i].title
+						p = list[i].pubDate
+						l = "<a href=" + list[i].link +">"+list[i].link +"</a>"
+						g = list[i].guid
+						a = list[i].author
+					
+					$('div').append("title : " + t + "<br>"
+							+ "pubDate : " + p + "<br>"
+							+ "link : "+ l + "<br>"
+							+ "guid : "+ g + "<br> author : " + a + "<hr color=" + "black" + ">")
+					}
+				} //success
+			}) //ajax
+		}) //b3
+		
+	}) //$
+</script>
+
+</head>
+<body bgcolor="lime">
+	신문뉴스 데이터 받아오기(ajax로) <br>
+	<button style='color: blue; background: pink' id='b1'>연예인 기사(한경)</button>
+	<button style='color: blue; background: yellow;' id='b2'>IT 기사(한경)</button>
+	<button style='color: blue; background: white;' id='b3'>국제 기사(한경)</button>
+	<hr color="green">
+	<div id="result"></div>
+</body>
+</html>
